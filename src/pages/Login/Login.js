@@ -13,7 +13,7 @@ export const Login = () => {
   const handleValue = (e) => {
     let value = e.currentTarget.value;
     let inputObject = e.target.id;
-    console.log(value);
+
     switch (inputObject) {
       case 'userLogin':
         setLoginValue(value)
@@ -40,20 +40,22 @@ export const Login = () => {
         <form action='' method='post' onSubmit={handleSubmit}>
           <h2>Sign in</h2>
           <div className='inputBox'>
-            <label>Username</label>
-            <input type='text' name='login' id='userLogin' value={loginValue} onChange={handleValue} />
+            <input type='text' name='login' id='userLogin' placeholder='Username' value={loginValue} onChange={handleValue} />
           </div>
           <div className='inputBox'>
-            <label>Password</label>
-            <input name='password' id='userPassword' type={visibilityPassword ? 'text' : 'password'} value={passwordValue} onChange={handleValue} />
+            <input name='password' id='userPassword' placeholder='Password' type={visibilityPassword ? 'text' : 'password'} value={passwordValue} onChange={handleValue} />
           </div>
-          <div className=''>
-            <label htmlFor="">Show password</label>
-            <input type="checkbox" id='showPassword' value={visibilityPassword} checked={visibilityPassword ? 'checked' : ''} onChange={handleValue} />
+          <div className='inputBox'>
+            <div className="checkboxWrapper">
+              <label htmlFor="">Show password</label>
+              <input type="checkbox" id='showPassword' value={visibilityPassword} checked={visibilityPassword ? 'checked' : ''} onChange={handleValue} />
+            </div>
           </div>
-          <div className=''>
-            <label htmlFor="">Remember me</label>
-            <input type="checkbox" id='rememberPassword' value={rememberPassword} checked={rememberPassword ? 'checked' : ''} onChange={handleValue} />
+          <div className='inputBox'>
+            <div className="checkboxWrapper">
+              <label htmlFor="">Remember me</label>
+              <input type="checkbox" id='rememberPassword' value={rememberPassword} checked={rememberPassword ? 'checked' : ''} onChange={handleValue} />
+            </div>
           </div>
           <div className='inputBox submit'>
             <input type='submit' value='Submit' />

@@ -29,30 +29,60 @@ code {
 }
 
 .formBox {
-  background-color: #fff;
+  background-color: #303030;
+  color: #fff;
   width: 30%;
   padding: 20px;
   border-radius: 6px;
 }
 
+.formBox h2 {
+  padding-bottom: 20px;
+}
+
 .inputBox {
   display: flex;
   flex-direction: column;
-  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.formBox input {
+.inputBox input {
+  background-color: #303030;
+  color: #fff;
   font-size: 20px;
+}
+
+.inputBox .checkboxWrapper {
+  width: max-content;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.inputBox .checkboxWrapper [type=checkbox] {
+  margin-right: 10px;
+}
+
+.inputBox [type=text],
+.inputBox [type=password] {
+  border: none;
+  border-bottom: 1px solid #fff;
   padding: 6px;
 }
 
-.inputBox.submit input {
-  background-color: rgb(93, 253, 93);
+.inputBox [type=text]:focus,
+.inputBox [type=password]:focus,
+.inputBox [type=submit] {
+  outline: none;
+}
+
+.inputBox [type=submit] {
+  background-color: rgb(24, 179, 24);
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  padding: 6px;
 }
 
-.inputBox.submit input:hover {
+.inputBox [type=submit]:hover {
   background-color: rgb(81, 211, 81);
 }
