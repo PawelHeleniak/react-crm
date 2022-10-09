@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom"
+
+import { FormInput } from './utils/FormInput'
 
 export const Login = () => {
-  const [loginValue, setLoginValue] = useState('');
-  const [passwordValue, setPasswordValue] = useState('');
-  const [visibilityPassword, setVisibilityPassword] = useState(false);
-  const [rememberPassword, setRememberPassword] = useState(true);
+  const [values, setValues] = useState({
+    login: '',
+    password: '',
+    visibilityPassword: false,
+    rememberPassword: false,
+  })
 
+  const navigate = useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
+    navigate('/home')
   }
 
   const handleValue = (e) => {
@@ -16,17 +23,16 @@ export const Login = () => {
 
     switch (inputObject) {
       case 'userLogin':
-        setLoginValue(value)
+        setValues({ login: value })
         break;
-
       case 'userPassword':
-        setPasswordValue(value)
+        setValues({ password: value })
         break;
       case 'showPassword':
-        setVisibilityPassword(!visibilityPassword)
+        setValues({ visibilityPassword: value })
         break;
       case 'rememberPassword':
-        setRememberPassword(!rememberPassword)
+        setValues({ rememberPassword: value })
         break;
       default:
         console.log("Błąd");
@@ -38,28 +44,7 @@ export const Login = () => {
     <div className='container'>
       <div className="formBox">
         <form action='' method='post' onSubmit={handleSubmit}>
-          <h2>Sign in</h2>
-          <div className='inputBox'>
-            <input type='text' name='login' id='userLogin' placeholder='Username' value={loginValue} onChange={handleValue} />
-          </div>
-          <div className='inputBox'>
-            <input name='password' id='userPassword' placeholder='Password' type={visibilityPassword ? 'text' : 'password'} value={passwordValue} onChange={handleValue} />
-          </div>
-          <div className='inputBox'>
-            <div className="checkboxWrapper">
-              <label htmlFor="">Show password</label>
-              <input type="checkbox" id='showPassword' value={visibilityPassword} checked={visibilityPassword ? 'checked' : ''} onChange={handleValue} />
-            </div>
-          </div>
-          <div className='inputBox'>
-            <div className="checkboxWrapper">
-              <label htmlFor="">Remember me</label>
-              <input type="checkbox" id='rememberPassword' value={rememberPassword} checked={rememberPassword ? 'checked' : ''} onChange={handleValue} />
-            </div>
-          </div>
-          <div className='inputBox submit'>
-            <input type='submit' value='Submit' />
-          </div>
+          <FormInput value={values} action={handleValue} />
         </form>
       </div>
     </div>
