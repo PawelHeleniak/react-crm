@@ -6,11 +6,11 @@ class UserAction {
     res.status(200).json(login);
   }
   async saveUser(req, res) {
-    const name = req.body.name;
+    const login = req.body.login;
     const password = req.body.password;
 
     const register = new User({
-      name: name,
+      login: login,
       password: password,
     })
 
