@@ -5,6 +5,24 @@ class UserAction {
     const login = await User.find({});
     res.status(200).json(login);
   }
+
+  // login to crm
+  async loginUser(req, res) {
+    const login = req.body.login;
+    const password = req.body.password;
+    const user = await User.findOne({ login, password });
+
+    // res.send(user)
+    // if (user) {
+    // res.status(200);
+    res.status(200).json(user);
+
+    // } else {
+    //   res.send("error")
+    // }
+  }
+
+  // save user test
   async saveUser(req, res) {
     const login = req.body.login;
     const password = req.body.password;

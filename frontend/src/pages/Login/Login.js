@@ -13,19 +13,23 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/crm', {
+      await fetch('http://localhost:3001/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ login: values.login, password: values.password }),
-      })
-      console.log(response);
-      return response.json();
+      }).then(res => {
+        return res.json()
+      }).then(data => {
+        if (data) {
+          navigate('/home')
+          console.log(data);
+        }
+      });
     } catch (err) {
       console.log(err);
     }
-    // navigate('/home')
   }
 
   const handleValue = (e) => {
