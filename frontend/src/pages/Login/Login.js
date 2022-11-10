@@ -8,6 +8,7 @@ export const Login = () => {
     visibilityPassword: false,
     rememberPassword: false,
   })
+  const [error, setError] = useState(false)
 
   const navigate = useNavigate()
   const handleSubmit = async (e) => {
@@ -25,6 +26,9 @@ export const Login = () => {
         if (data) {
           navigate('/home')
           console.log(data);
+        } else {
+          setError(true);
+          setValues({ ...values, password: '' });
         }
       });
     } catch (err) {
@@ -49,15 +53,23 @@ export const Login = () => {
 
 
   return (
-    <div className='container'>
-      <div className="formBox">
+    <div className='container loginPage'>
+      <div className={"formBox"}>
         <form action='/' method='POST' onSubmit={handleSubmit}>
           <h2>Sign in</h2>
+          {error ?
+            <div className="incorrectData">
+              <div className="info">
+                <p>Incorrect data,</p>
+                <p>check username or password.</p>
+              </div>
+            </div>
+            : ''}
           <div className='inputBox'>
-            <input type='text' name='login' id='userLogin' placeholder='Username' value={values.login} onChange={handleValue} />
+            <input type='text' name='login' id='userLogin' placeholder='Username' value={values.login} onChange={handleValue} required />
           </div>
           <div className='inputBox'>
-            <input type={values.visibilityPassword ? 'text' : 'password'} name='password' id='userPassword' placeholder='Password' value={values.password} onChange={handleValue} />
+            <input type={values.visibilityPassword ? 'text' : 'password'} name='password' id='userPassword' placeholder='Password' value={values.password} onChange={handleValue} required />
           </div>
           <div className='inputBox'>
             <div className="checkboxWrapper">
@@ -76,6 +88,6 @@ export const Login = () => {
           </div>
         </form>
       </div>
-    </div>
+    </div >
   );
 }
