@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Nav } from './Nav'
-import { Main } from './Main'
+import { User } from './Section/User'
 
 export const Home = () => {
   const navigate = useNavigate()
@@ -11,7 +11,7 @@ export const Home = () => {
   return (
     <div className="container homePage">
       <Nav action={handleReturn} />
-      {/* <Main /> */}
+      <User />
     </div >
   )
 }

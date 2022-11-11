@@ -106,6 +106,9 @@ code {
 }
 
 /* --- HOME PAGE --- */
+.container.homePage {
+  font-size: 1.1rem;
+}
 
 /* --- Nav --- */
 .container.homePage {
@@ -166,4 +169,76 @@ nav {
 .returnButton button:hover {
   background-color: rgb(17, 129, 17);
   transition: background-color 0.2s ease;
+}
+
+/* --- User --- */
+section {
+  width: 100%;
+  height: 100%;
+  background-color: #303030;
+  display: flex;
+  padding: 20px;
+}
+
+section .wrapper {
+  color: #fff;
+  width: 100%;
+  /* height: max-content; */
+  display: flex;
+  flex-direction: column;
+}
+
+.boxWrapper {
+  display: flex;
+  width: 100%;
+  /* height: max-content; */
+  margin-bottom: 20px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  background-color: #404040;
+  padding: 20px;
+}
+
+.box:nth-child(2n) {
+  margin-left: 20px;
+}
+
+section .wrapper .box:hover {
+  box-shadow: 6px 6px 10px -5px rgb(0, 126, 0);
+}
+
+.box.userData {
+  width: 40%;
+}
+
+.userData span {
+  font-weight: 600;
+}
+
+.box.userSkills {
+  width: 60%;
+}
+
+.userSkills .skills {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.box.userSkills span {
+  background-color: rgb(24, 179, 24);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-left: 10px;
+}
+
+.box.userSkills span:first-child {
+  margin-left: 0;
+}
+
+.box.userCalendar {
+  width: 100%;
 }
