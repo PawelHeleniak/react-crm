@@ -12,24 +12,19 @@ class UserAction {
     const password = req.body.password;
     const user = await User.findOne({ login, password });
 
-    // res.send(user)
-    // if (user) {
-    // res.status(200);
     res.status(200).json(user);
-
-    // } else {
-    //   res.send("error")
-    // }
   }
 
   // save user test
   async saveUser(req, res) {
     const login = req.body.login;
     const password = req.body.password;
+    const userId = req.body.userId;
 
     const register = new User({
       login: login,
       password: password,
+      userId: userId,
     })
 
     await register.save();

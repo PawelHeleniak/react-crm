@@ -9,6 +9,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  userId: {
+    type: Number,
+    required: true
+  }
 });
 
 const User = mongoose.model('User', UserSchema);
