@@ -24,8 +24,14 @@ export const Login = () => {
         return res.json()
       }).then(data => {
         if (data) {
-          navigate('/home')
           console.log(data);
+          const userId = data.userId;
+
+          navigate('/home', {
+            state: {
+              userId: userId,
+            }
+          })
         } else {
           setError(true);
           setValues({ ...values, password: '' });

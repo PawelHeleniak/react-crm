@@ -3,7 +3,9 @@ const Data = require('../models/data');
 class DataAction {
   // get user data
   async getData(req, res) {
-    const userData = await Data.find({});
+    const userId = req.body.userId;
+
+    const userData = await Data.findOne({ userId });
     res.status(200).json(userData);
   }
 
@@ -15,6 +17,7 @@ class DataAction {
     const profession = req.body.profession;
     const email = req.body.email;
     const phone = req.body.phone;
+    const dateOfBirth = req.body.dateOfBirth;
     const userId = req.body.userId;
 
     const register = new Data({
@@ -24,6 +27,7 @@ class DataAction {
       profession: profession,
       email: email,
       phone: phone,
+      dateOfBirth: dateOfBirth,
       userId: userId,
     })
 

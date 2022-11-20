@@ -25,6 +25,10 @@ const DataSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  dateOfBirth: {
+    type: String,
+    required: true
+  },
   userId: {
     type: Number,
     required: true

@@ -1,17 +1,19 @@
 import React from 'react'
 
 export const User = (props) => {
+  console.log(props.userData);
+  const { age, email, lastName, name, phone, profession, dateOfBirth } = props.userData;
   return (
     <section>
       <div className="wrapper">
         <div className="boxWrapper">
           <div className="box userData">
-            <h1>Paweł Heleniak</h1>
-            <p><span>Age:</span> 21</p>
-            <p><span>Date of birth:</span> 31.10.2001</p>
-            <p><span>Profession:</span> Front-end developer</p>
-            <p><span>Email:</span> pawel.heleniak@outlook.com</p>
-            <p><span>Phone:</span> 677544356</p>
+            <h1>{name} {lastName}</h1>
+            <p><span>Age: </span>{age}</p>
+            <p><span>Date of birth: </span>{dateOfBirth}</p>
+            <p><span>Profession: </span>{profession}</p>
+            <p><span>Email: </span>{email}</p>
+            <p><span>Phone: </span>{phone}</p>
           </div>
           <div className="box userSkills">
             <h1>Skills</h1>

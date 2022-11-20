@@ -6,7 +6,7 @@ const data = require('../action/dataAction');
 
 router.post('/login', user.loginUser)
 router.post('/register', user.saveUser)
-router.get('/crm', data.getData)
+router.post('/userData', data.getData)
 router.post('/crm', data.saveData)
 
 //exportuje router

@@ -1,10 +1,12 @@
 import React from 'react'
 
 export const Nav = (props) => {
+  const { name } = props.userData;
+
   return (
     <nav>
       <div className="menuTitle">
-        <h1>Hi Paweł</h1>
+        <h1>Hi {name}</h1>
       </div>
       <div className="menuBar">
         <div className="menuElement"><a>User</a></div>
