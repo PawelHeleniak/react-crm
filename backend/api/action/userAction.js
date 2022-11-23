@@ -17,9 +17,17 @@ class UserAction {
 
   // save user test
   async saveUser(req, res) {
+    //get last user
+    const getUsers = await User.find({});
+    let usersId = Object.entries(getUsers).map(([key, val] = entry) => {
+      return val.userId;
+    });
+    const lastUserId = Math.max.apply(null, usersId)
+
+    //create new user
     const login = req.body.login;
     const password = req.body.password;
-    const userId = req.body.userId;
+    const userId = lastUserId + 1;
 
     const register = new User({
       login: login,

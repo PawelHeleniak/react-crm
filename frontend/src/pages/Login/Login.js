@@ -60,7 +60,7 @@ export const Login = () => {
 
   return (
     <div className='container loginPage'>
-      <div className={"formBox"}>
+      <div className="formBox">
         <form action='/' method='POST' onSubmit={handleSubmit}>
           <h2>Sign in</h2>
           {error ?

@@ -1,8 +1,9 @@
 import React from 'react'
 
 export const User = (props) => {
-  console.log(props.userData);
   const { age, email, lastName, name, phone, profession, dateOfBirth } = props.userData;
+  // console.log(props.userData);
+
   return (
     <section>
       <div className="wrapper">
