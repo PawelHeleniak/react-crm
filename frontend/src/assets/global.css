@@ -18,6 +18,18 @@ code {
     monospace;
 }
 
+/* Input webkit*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
 /* --- LOGIN PAGE --- */
 .container.loginPage {
   background-color: #202020;
@@ -80,6 +92,9 @@ code {
 }
 
 .inputBox [type=text],
+.inputBox [type=date],
+.inputBox [type=email],
+.inputBox [type=number],
 .inputBox [type=password] {
   border: none;
   border-bottom: 1px solid #fff;
@@ -88,6 +103,9 @@ code {
 
 .inputBox [type=text]:focus,
 .inputBox [type=password]:focus,
+.inputBox [type=date]:focus,
+.inputBox [type=number]:focus,
+.inputBox [type=email]:focus,
 .inputBox [type=submit] {
   outline: none;
 }

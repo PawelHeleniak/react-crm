@@ -11,33 +11,36 @@ class DataAction {
 
   //test
   async saveData(req, res) {
-    // const userId = 10;
+    //get last user data
+    const getUserData = await Data.find({});
+    let usersId = Object.entries(getUserData).map(([key, val] = entry) => {
+      return val.userId;
+    });
+    const lastDataUserId = Math.max.apply(null, usersId)
 
-    const userData = await Data.find({});
-    // res.status(200).json(userData);
+    //create new user data
+    const name = req.body.name;
+    const lastName = req.body.lastName;
+    const age = req.body.age;
+    const profession = req.body.profession;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const dateOfBirth = req.body.dateOfBirth;
+    const userId = lastDataUserId + 1;
 
-    // const name = req.body.name;
-    // const lastName = req.body.lastName;
-    // const age = req.body.age;
-    // const profession = req.body.profession;
-    // const email = req.body.email;
-    // const phone = req.body.phone;
-    // const dateOfBirth = req.body.dateOfBirth;
-    // const userId = req.body.userId;
+    const register = new Data({
+      name: name,
+      lastName: lastName,
+      age: age,
+      profession: profession,
+      email: email,
+      phone: phone,
+      dateOfBirth: dateOfBirth,
+      userId: userId,
+    })
 
-    // const register = new Data({
-    //   name: name,
-    //   lastName: lastName,
-    //   age: age,
-    //   profession: profession,
-    //   email: email,
-    //   phone: phone,
-    //   dateOfBirth: dateOfBirth,
-    //   userId: userId,
-    // })
-
-    // await register.save();
-    // res.status(201).json(register);
+    await register.save();
+    res.status(201).json(register);
   }
 }
 
