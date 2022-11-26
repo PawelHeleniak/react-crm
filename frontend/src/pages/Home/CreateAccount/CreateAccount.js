@@ -4,13 +4,13 @@ export const CreateAccount = () => {
   const [values, setValues] = useState({
     name: '',
     lastName: '',
-    age: '',
     dateOfBirth: '',
     profession: '',
     email: '',
     phone: '',
     userId: '',
   })
+  const [age, setAge] = useState('')
 
   //send new account
   const handleSubmit = async (e) => {
@@ -44,12 +44,13 @@ export const CreateAccount = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name: values.name, lastName: values.lastName, age: values.age, dateOfBirth: values.dateOfBirth, profession: values.profession, email: values.email, phone: values.phone }),
+        body: JSON.stringify({ name: values.name, lastName: values.lastName, age: age, dateOfBirth: values.dateOfBirth, profession: values.profession, email: values.email, phone: values.phone }),
       }).then(res => {
         return res.json()
       }).then(data => {
         if (data)
-          setValues({ ...values, name: '', lastName: '', age: '', dateOfBirth: '', profession: '', email: '', phone: '', userId: '' });
+          setValues({ ...values, name: '', lastName: '', dateOfBirth: '', profession: '', email: '', phone: '', userId: '' });
+        setValues('');
       });
     } catch (err) {
       console.log(err);
@@ -62,18 +63,18 @@ export const CreateAccount = () => {
     setValues({ ...values, [name]: value })
 
     if (type === 'date')
-      handleAge()
+      handleAge(value)
   }
 
   // Age calculation
-  const handleAge = () => {
+  const handleAge = (value) => {
     let now = new Date();
 
-    let yearAge = values.dateOfBirth.substring(0, 4);
+    let yearAge = value.substring(0, 4);
     let currentYear = now.getFullYear();
     let userAge = currentYear - yearAge
 
-    setValues({ ...values, age: userAge });
+    setAge(userAge);
   }
 
   return (
