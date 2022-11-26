@@ -12,6 +12,7 @@ export const Nav = (props) => {
         <div className="menuElement"><a id="user" onClick={props.liAction}>User</a></div>
         <div className="menuElement"><a id="project" onClick={props.liAction}>Project</a></div>
         <div className="menuElement"><a id="statistic" onClick={props.liAction}>Statistic</a></div>
+        <div className="menuElement"><a id="usersPersonalization" onClick={props.liAction}>Users personalization</a></div >
         <div className="menuElement"><a id="createAccount" onClick={props.liAction}>Create account</a></div >
       </div >
       <div className="returnButton">
