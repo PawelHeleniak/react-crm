@@ -260,3 +260,22 @@ section .wrapper .box:hover {
 .box.userCalendar {
   width: 100%;
 }
+
+/* --- UsersPersonalization --- */
+.userBoxWrapper {
+  display: flex;
+}
+
+.userBoxWrapper .userBox {
+  margin-right: 20px;
+}
+
+.userBoxWrapper .userBox:nth-child(3n) {
+  margin-right: 0;
+}
+
+.userBox {
+  height: 200px;
+  width: 100%;
+  background-color: #404040;
+}
