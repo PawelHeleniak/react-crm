@@ -189,7 +189,8 @@ nav {
   transition: background-color 0.2s ease;
 }
 
-/* --- User --- */
+/* --- USER PAGE--- */
+/* User */
 section {
   width: 100%;
   height: 100%;
@@ -257,25 +258,70 @@ section .wrapper .box:hover {
   margin-left: 0;
 }
 
+
+/* Calendar */
 .box.userCalendar {
   width: 100%;
 }
 
-/* --- UsersPersonalization --- */
-.userBoxWrapper {
-  display: flex;
+.userCalendar h1 {
+  padding-bottom: 20px;
 }
 
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  grid-gap: 20px;
+}
+
+.calendarDay.today {
+  position: relative;
+  z-index: 10;
+}
+
+.calendarDay.today::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(24, 179, 24);
+  padding: 1.2rem;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.weekWrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  padding-bottom: 30px;
+  grid-gap: 20px;
+}
+
+.weekWrapper span {
+  font-weight: 600;
+}
+
+/* --- UsersPersonalization PAGE --- */
+.userBoxWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+/* 
 .userBoxWrapper .userBox {
   margin-right: 20px;
 }
 
 .userBoxWrapper .userBox:nth-child(3n) {
   margin-right: 0;
-}
+} */
 
 .userBox {
   height: 200px;
-  width: 100%;
+  /* width: 100%; */
   background-color: #404040;
 }

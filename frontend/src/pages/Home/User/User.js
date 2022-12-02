@@ -1,4 +1,5 @@
 import React from 'react'
+import { Calendar } from './Calendar'
 
 export const User = (props) => {
   const { age, email, lastName, name, phone, profession, dateOfBirth } = props.userData;
@@ -28,9 +29,7 @@ export const User = (props) => {
           </div>
         </div>
         <div className="boxWrapper">
-          <div className="box userCalendar">
-            <h1>Calendar</h1>
-          </div>
+          <Calendar />
         </div>
       </div>
     </section >
