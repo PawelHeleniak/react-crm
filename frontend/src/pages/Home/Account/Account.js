@@ -1,7 +1,7 @@
 import React from 'react'
 import { Calendar } from './Calendar'
 
-export const User = (props) => {
+export const Account = (props) => {
   const { age, email, lastName, name, phone, profession, dateOfBirth } = props.userData;
   // console.log(props.userData);
 

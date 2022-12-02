@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { useLocation } from "react-router-dom";
 
 import { Nav } from './Nav'
-import { User } from './User/User'
-import { UsersPersonalization } from './UsersPersonalization/UsersPersonalization'
+import { Account } from './Account/Account'
+import { Users } from './Users/Users'
 import { CreateAccount } from './CreateAccount/CreateAccount'
 
 export const Home = () => {
   const [userData, setUserData] = useState()
-  const [currentPage, setCurrentPage] = useState('user')
+  const [currentPage, setCurrentPage] = useState('account')
 
   // get userId
   const location = useLocation();
@@ -54,8 +54,8 @@ export const Home = () => {
   return (
     <div className="container homePage">
       {userData ? <Nav action={handleReturn} liAction={handleTab} userData={userData} /> : ''}
-      {userData && currentPage === 'user' ? <User userData={userData} /> : ''}
-      {userData && currentPage === 'usersPersonalization' ? <UsersPersonalization /> : ''}
+      {userData && currentPage === 'account' ? <Account userData={userData} /> : ''}
+      {userData && currentPage === 'users' ? <Users /> : ''}
       {userData && currentPage === 'createAccount' ? <CreateAccount /> : ''}
     </div >
   )

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-export const UsersPersonalization = () => {
+export const Users = () => {
 
-  // get user data
+  // get users data
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,12 +33,11 @@ export const UsersPersonalization = () => {
             <p><span>Profesion: </span></p>
             <p><span>Skills: </span></p>
           </div>
-          <div className="userBox"></div>
-          <div className="userBox"></div>
-          <div className="userBox"></div>
-          <div className="userBox"></div>
-          <div className="userBox"></div>
-          <div className="userBox"></div>
+          <div className="userBox">
+            <h1>Admin Admin</h1>
+            <p><span>Profesion: </span></p>
+            <p><span>Skills: </span></p>
+          </div>
         </div>
       </div>
     </section>
