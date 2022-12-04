@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { UserProfile } from './UserProfile'
 
 export const Users = () => {
-
+  const [allUsers, setAllUsers] = useState()
   // get users data
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await fetch('http://localhost:3001/', {
+        await fetch('http://localhost:3001/userAllData', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -15,29 +16,22 @@ export const Users = () => {
         }).then(res => {
           return res.json()
         }).then(data => {
-          console.log(data);
+          setAllUsers(data)
         });
       } catch (err) {
         console.log(err);
       }
     }
-    fetchData();
+    if (!allUsers)
+      fetchData();
   });
+  const userProfile = allUsers?.map(e => <UserProfile data={e} />)
 
   return (
     <section>
       <div className="wrapper">
         <div className='userBoxWrapper'>
-          <div className="userBox">
-            <h1>Paweł Heleniak</h1>
-            <p><span>Profesion: </span></p>
-            <p><span>Skills: </span></p>
-          </div>
-          <div className="userBox">
-            <h1>Admin Admin</h1>
-            <p><span>Profesion: </span></p>
-            <p><span>Skills: </span></p>
-          </div>
+          {userProfile}
         </div>
       </div>
     </section>

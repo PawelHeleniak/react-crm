@@ -1,6 +1,11 @@
 const Data = require('../models/data');
 
 class DataAction {
+  // get all user data
+  async getAllData(req, res) {
+    const userData = await Data.find({});
+    res.status(200).json(userData);
+  }
   // get user data
   async getData(req, res) {
     const userId = req.body.userId;

@@ -9,6 +9,7 @@ router.post('/register', user.saveUser)
 
 router.post('/saveData', data.saveData)
 router.post('/userData', data.getData)
+router.post('/userAllData', data.getAllData)
 // router.post('/crm', data.saveData)
 
 //exportuje router
