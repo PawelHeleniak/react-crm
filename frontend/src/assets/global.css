@@ -5,10 +5,11 @@
 }
 
 :root {
-  --text_DarkMode: hsl(0, 0%, 100%);
-  --bg_DarkMode: hsl(0, 0%, 100%);
-  --bgSecond_DarkMode: hsl(0, 0%, 100%);
   --additionalColor: hsl(120, 76%, 40%);
+  --bg_DarkMode: hsl(0, 0%, 19%);
+  /* --bgSecond_DarkMode: hsl(0, 0%, 100%); */
+  --box_DarkMode: hsl(0, 0%, 25%);
+  --text_DarkMode: hsl(0, 0%, 100%);
 }
 
 body {
@@ -39,7 +40,7 @@ input[type=number] {
 
 /* --- LOGIN PAGE --- */
 .container.loginPage {
-  background-color: #202020;
+  background-color: var(--bg_DarkMode);
   color: var(--text_DarkMode);
   width: 100vw;
   height: 100vh;
@@ -49,7 +50,7 @@ input[type=number] {
 }
 
 .formBox {
-  background-color: #303030;
+  background-color: var(--box_DarkMode);
   color: var(--text_DarkMode);
   width: 30%;
   padding: 20px;
@@ -83,7 +84,7 @@ input[type=number] {
 }
 
 .inputBox input {
-  background-color: #303030;
+  background-color: var(--box_DarkMode);
   color: var(--text_DarkMode);
   font-size: 20px;
 }
@@ -162,16 +163,16 @@ nav {
 .menuBar .menuElement a {
   width: 100%;
   padding: 15px;
-  border-top: 1px solid #303030;
+  border-top: 1px solid var(--bg_DarkMode);
   cursor: pointer;
 }
 
 .menuBar .menuElement a:last-child {
-  border-bottom: 1px solid #303030;
+  border-bottom: 1px solid var(--bg_DarkMode);
 }
 
 .menuBar .menuElement a:hover {
-  background-color: #303030;
+  background-color: var(--bg_DarkMode);
   transition: background-color 0.2s ease;
 }
 
@@ -201,7 +202,7 @@ nav {
 section {
   width: 100%;
   height: 100%;
-  background-color: #303030;
+  background-color: var(--bg_DarkMode);
   display: flex;
   padding: 20px;
 }
@@ -224,7 +225,7 @@ section .wrapper {
 .box {
   display: flex;
   flex-direction: column;
-  background-color: #404040;
+  background-color: var(--box_DarkMode);
   padding: 20px;
   border-radius: 6px;
 }
@@ -307,18 +308,43 @@ section .wrapper .box:hover {
 }
 
 .calendar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrowLeft a,
+.arrowRight a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.arrowLeft a:hover,
+.arrowRight a:hover {
+  background-color: var(--bg_DarkMode);
+}
+
+.moduleSection {
+  width: 100%;
+}
+
+.dayWrapper {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
   grid-gap: 20px;
 }
 
-.calendarDay.today {
+.dayWrapper.active .calendarDay.today {
   position: relative;
   z-index: 10;
 }
 
-.calendarDay.today::before {
+.dayWrapper.active .calendarDay.today::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -350,7 +376,7 @@ section .wrapper .box:hover {
 }
 
 .userBox {
-  background-color: #404040;
+  background-color: var(--box_DarkMode);
   padding: 20px;
   cursor: pointer;
 }

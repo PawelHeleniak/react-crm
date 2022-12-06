@@ -4,7 +4,6 @@ import photo from '../../../assets/img/default_account_96px.png';
 
 export const Account = (props) => {
   const { age, email, lastName, name, phone, profession, dateOfBirth } = props.userData;
-  // console.log(props.userData);
 
   return (
     <section>
