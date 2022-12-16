@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 
 import { Nav } from './Nav'
 import { Account } from './Account/Account'
+import { Projects } from './Projects/Projects'
 import { Users } from './Users/Users'
 import { CreateAccount } from './CreateAccount/CreateAccount'
 
@@ -55,6 +56,7 @@ export const Home = () => {
     <div className="container homePage">
       {userData ? <Nav action={handleReturn} liAction={handleTab} userData={userData} /> : ''}
       {userData && currentPage === 'account' ? <Account userData={userData} /> : ''}
+      {userData && currentPage === 'projects' ? <Projects /> : ''}
       {userData && currentPage === 'users' ? <Users /> : ''}
       {userData && currentPage === 'createAccount' ? <CreateAccount /> : ''}
     </div >

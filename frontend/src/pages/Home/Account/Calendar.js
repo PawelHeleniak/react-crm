@@ -16,7 +16,7 @@ export const Calendar = () => {
   const handleDate = (count) => {
     let month
     let year
-    console.log("END", count);
+
     if (count === null) {
       month = new Date().getMonth()
       year = new Date().getFullYear()
@@ -30,8 +30,6 @@ export const Calendar = () => {
       year = date.year - 1
       month = 11
     }
-
-
 
     //get first day in month
     const firstDateDay = new Date(year, month, 0);
