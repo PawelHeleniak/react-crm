@@ -6,22 +6,29 @@ export const Projects = () => {
     {
       title: 'TYTUŁ',
       information: 'Informacje o projekcie',
-      users: 'Tu będą przypisane osoby',
+      users: ['jakub test', 'pawel test', 'dawid test'],
       taskHierarchy: 'important',
-      tasks: {
-        nameTask: 'nazwa taska',
+      tasks: [{
+        nameTask: 'nazwa taska0',
         description: '-popraw czcionke'
-      }
+      }]
     },
     {
       title: 'TYTUŁ2',
       information: 'Informacje o projekcie2',
-      users: 'Tu będą przypisane osoby2',
+      users: ['Tu będą przypisane osoby2'],
       taskHierarchy: 'important',
-      tasks: {
-        nameTask: 'nazwa taska',
-        description: '-popraw czcionke'
-      }
+      tasks: [
+        {
+          nameTask: 'nazwa taska1',
+          description: '-popraw czcionke1'
+        },
+        {
+          nameTask: 'nazwa taska2',
+          description: '-popraw czcionke2'
+        },
+      ]
+
     },
   ])
 
@@ -31,6 +38,7 @@ export const Projects = () => {
       information={value.information}
       users={value.users}
       taskHierarchy={value.taskHierarchy}
+      tasks={value.tasks}
     />)
 
 

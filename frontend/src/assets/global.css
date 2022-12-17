@@ -377,15 +377,19 @@ section .wrapper .box:hover {
 
 /* --- Projects --- */
 .wrapper.projects .box {
+  padding: 0 20px;
   margin-bottom: 20px;
 }
 
-.box .title {
-  padding-bottom: 10px;
+.homePage .box .title {
+  padding: 10px;
 }
 
-.projectWrapper:nth-child(2n) {
-  background-color: hsl(0, 0%, 20%);
+.box .projectWrapper {
+  padding: 20px;
+  box-shadow: 0px 0px 6px 0px var(--bg_DarkMode);
+  border-radius: 6px;
+  margin-bottom: 20px;
 }
 
 .tasks {
@@ -393,16 +397,45 @@ section .wrapper .box:hover {
   grid-template-columns: repeat(4, 1fr);
   text-align: center;
   grid-gap: 20px;
+
 }
 
-.tasks .tableHeader {
-  background-color: var(--additionalColor);
-  border-radius: 0 0 20px 20px;
-}
+.tasks .tableColumn {
+  background-color: hsl(0, 0%, 23%);
+  box-shadow: 0px 0px 6px 0px var(--bg_DarkMode);
 
-.tasks .tableHeader {
   padding: 10px;
+  border-radius: 6px;
 }
+
+.tasks .tableName {
+  padding-bottom: 10px;
+}
+
+/* ---Task--- */
+.task {
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background-color: var(--box_DarkMode);
+}
+
+.task:last-child {
+  margin-bottom: 0;
+}
+
+.projectName span {
+  font-weight: 600;
+}
+
+.projectInfo span {
+  font-style: italic;
+}
+
+.projectUsers {
+  margin: 10px 0;
+}
+
 
 /* .test {
   transform: translateY(-20px);

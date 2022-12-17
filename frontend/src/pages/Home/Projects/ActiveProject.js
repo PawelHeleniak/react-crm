@@ -1,9 +1,15 @@
 import React from 'react'
-// import { Task } from './Task'
+import { Task } from './Task'
 
-export const ActiveProject = ({ title, information, users }) => {
-  // const { title, information, users } = props.projects;
-  console.log(title);
+
+export const ActiveProject = ({ title, information, users, tasks }) => {
+  const task = tasks.map(value =>
+    <Task
+      nameTask={value.nameTask}
+      description={value.description}
+    />
+  )
+
   return (
     <div className="projectWrapper">
       <div className="projectName">
@@ -13,27 +19,14 @@ export const ActiveProject = ({ title, information, users }) => {
         <span>{information}</span>
       </div>
       <div className="projectUsers">
-        <span>{users}</span>
+        <span>Uczestnicy: {users.join(', ')} </span>
       </div>
       <div className="tasks">
         <div className="tableColumn urgent">
-          <div className="tableHeader">
+          <div className="tableName">
             <span>Pilne</span>
           </div>
-          <div className="tableRow">
-            <div className="test">
-              <span>Wygląd strony logowania</span>
-              <p>-popraw czcionke</p>
-              <p>-znika na 419</p>
-            </div>
-          </div>
-          <div className="tableRow">
-            <div className="test">
-              <span>Wygląd strony logowania</span>
-              <p>-popraw czcionke</p>
-              <p>-znika na 419</p>
-            </div>
-          </div>
+          {task}
         </div>
         <div className="tableColumn important">
           <div className="tableHeader">
