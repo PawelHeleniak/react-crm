@@ -7,8 +7,8 @@ export const Projects = () => {
       title: 'TYTUŁ',
       information: 'Informacje o projekcie',
       users: ['jakub test', 'pawel test', 'dawid test'],
-      taskHierarchy: 'important',
       tasks: [{
+        taskHierarchy: 'important',
         nameTask: 'nazwa taska0',
         description: '-popraw czcionke'
       }]
@@ -17,13 +17,19 @@ export const Projects = () => {
       title: 'TYTUŁ2',
       information: 'Informacje o projekcie2',
       users: ['Tu będą przypisane osoby2'],
-      taskHierarchy: 'important',
       tasks: [
         {
+          taskHierarchy: 'important',
           nameTask: 'nazwa taska1',
           description: '-popraw czcionke1'
         },
         {
+          taskHierarchy: 'important',
+          nameTask: 'nazwa taska1',
+          description: '-popraw czcionke1'
+        },
+        {
+          taskHierarchy: 'done',
           nameTask: 'nazwa taska2',
           description: '-popraw czcionke2'
         },

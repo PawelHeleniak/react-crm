@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Task } from './Task'
 
 
 export const ActiveProject = ({ title, information, users, tasks }) => {
-  const task = tasks.map(value =>
-    <Task
-      nameTask={value.nameTask}
-      description={value.description}
-    />
-  )
+
+  const urgentTasks = tasks.filter(value => value.taskHierarchy === 'urgent')
+  const importantTasks = tasks.filter(value => value.taskHierarchy === 'important')
+  const fixTasks = tasks.filter(value => value.taskHierarchy === 'fix')
+  const doneTasks = tasks.filter(value => value.taskHierarchy === 'done')
+
+  const urgent = urgentTasks.map(value => <Task task={value} />)
+  const important = importantTasks.map(value => <Task task={value} />)
+  const fix = fixTasks.map(value => <Task task={value} />)
+  const done = doneTasks.map(value => <Task task={value} />)
 
   return (
     <div className="projectWrapper">
@@ -26,25 +30,25 @@ export const ActiveProject = ({ title, information, users, tasks }) => {
           <div className="tableName">
             <span>Pilne</span>
           </div>
-          {task}
+          {urgent}
         </div>
         <div className="tableColumn important">
           <div className="tableHeader">
             <span>Ważne</span>
           </div>
-          <div className="tableRow">Task1</div>
+          {important}
         </div>
         <div className="tableColumn fix">
           <div className="tableHeader">
             <span>Fix</span>
           </div>
-          <div className="tableRow">Task1</div>
+          {fix}
         </div>
         <div className="tableColumn done">
           <div className="tableHeader">
             <span>Done</span>
           </div>
-          <div className="tableRow">Task1</div>
+          {done}
         </div>
       </div>
     </div>

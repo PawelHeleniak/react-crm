@@ -1,6 +1,8 @@
 import React from 'react'
 
-export const Task = ({ nameTask, description }) => {
+export const Task = (props) => {
+  const { nameTask, description } = props.task
+
   return (
     <>
       <div className="task">
