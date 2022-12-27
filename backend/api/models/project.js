@@ -13,14 +13,7 @@ const ProjectSchema = new mongoose.Schema({
     type: Array,
     required: true
   },
-  // tasks: {
-  //   type: [{
-  //     taskHierarchy: String,
-  //     nameTask: String,
-  //     description: String,
-  //   }],
-  //   required: false
-  // },
+  tasks: {},
   projectId: {
     type: Number,
     required: true

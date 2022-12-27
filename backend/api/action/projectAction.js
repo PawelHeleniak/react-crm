@@ -26,6 +26,7 @@ class ProjectAction {
       title: title,
       information: information,
       users: users,
+      tasks: {},
       projectId: maxId,
     })
 

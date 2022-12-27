@@ -4,6 +4,7 @@ const router = express.Router();
 const user = require('../action/userAction');
 const data = require('../action/dataAction');
 const project = require('../action/projectAction');
+const task = require('../action/taskAction');
 
 //login page
 router.post('/login', user.loginUser)
@@ -20,7 +21,7 @@ router.post('/addProject', project.saveProject)
 router.post('/testProject', project.testProject)
 
 //task
-// router.post('/addTask', project.addTask)
+router.post('/addTask', task.addTask)
 
 //exportuje router
 module.exports = router;
