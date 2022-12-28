@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { ActiveProject } from './ActiveProject'
+import { ActiveProject } from './components/ActiveProject'
+import { Button } from './components/Button'
+import { Modal } from './components/Modal'
 
 export const Projects = () => {
   const [projects, setProjects] = useState([
@@ -37,6 +39,7 @@ export const Projects = () => {
 
     },
   ])
+  const [newProject, setNewProject] = useState(false)
 
   const activeProject = projects.map(value =>
     <ActiveProject
@@ -45,8 +48,12 @@ export const Projects = () => {
       users={value.users}
       taskHierarchy={value.taskHierarchy}
       tasks={value.tasks}
-    />)
-
+    />
+  )
+  const handleButton = () => {
+    setNewProject(!newProject)
+    console.log("test");
+  }
 
   return (
     <section>
@@ -56,6 +63,8 @@ export const Projects = () => {
             <h1>Aktualne projekty</h1>
           </div>
           {activeProject}
+          {newProject ? <Modal /> : ''}
+          <Button create={handleButton} />
         </div>
         <div className="box">
           <div>

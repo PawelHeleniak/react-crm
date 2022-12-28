@@ -19,6 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg_DarkMode);
 }
 
 code {
@@ -26,7 +27,53 @@ code {
     monospace;
 }
 
-/* Input webkit*/
+/* --- GENERAL --- */
+
+button {
+  background-color: var(--additionalColor);
+  color: var(--text_DarkMode);
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: hsl(120, 76%, 30%);
+  transition: background-color 0.2s ease;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  padding: 20px;
+  background-color: var(--bg_DarkMode);
+  margin-left: 20%;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--box_DarkMode);
+  padding: 20px;
+  border-radius: 6px;
+}
+
+/* Input */
+
+input {
+  background-color: var(--box_DarkMode);
+  color: var(--text_DarkMode);
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid var(--text_DarkMode);
+  padding: 6px;
+  outline: none;
+}
+
+/*webkit*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -83,12 +130,6 @@ input[type=number] {
   padding-bottom: 10px;
 }
 
-.inputBox input {
-  background-color: var(--box_DarkMode);
-  color: var(--text_DarkMode);
-  font-size: 20px;
-}
-
 .inputBox .checkboxWrapper {
   width: max-content;
   display: flex;
@@ -97,25 +138,6 @@ input[type=number] {
 
 .inputBox .checkboxWrapper [type=checkbox] {
   margin-right: 10px;
-}
-
-.inputBox [type=text],
-.inputBox [type=date],
-.inputBox [type=email],
-.inputBox [type=number],
-.inputBox [type=password] {
-  border: none;
-  border-bottom: 1px solid var(--text_DarkMode);
-  padding: 6px;
-}
-
-.inputBox [type=text]:focus,
-.inputBox [type=password]:focus,
-.inputBox [type=date]:focus,
-.inputBox [type=number]:focus,
-.inputBox [type=email]:focus,
-.inputBox [type=submit] {
-  outline: none;
 }
 
 .inputBox [type=submit] {
@@ -136,19 +158,19 @@ input[type=number] {
   font-size: 1.1rem;
 }
 
-/* --- Nav --- */
 .container.homePage {
-  background-color: #aeaeae;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
 }
 
+/* --- Nav --- */
 nav {
   background-color: #202020;
   color: var(--text_DarkMode);
   width: 20%;
   height: 100%;
+  position: fixed;
 }
 
 .menuTitle {
@@ -182,30 +204,11 @@ nav {
 }
 
 .returnButton button {
-  background-color: var(--additionalColor);
-  color: var(--text_DarkMode);
-  text-transform: uppercase;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
   padding: 10px 15px;
-}
-
-.returnButton button:hover {
-  background-color: var(--additionalColor);
-  transition: background-color 0.2s ease;
 }
 
 /* --- ACCOUNT PAGE--- */
 /* account */
-section {
-  width: 100%;
-  height: 100%;
-  background-color: var(--bg_DarkMode);
-  display: flex;
-  padding: 20px;
-}
 
 section .wrapper {
   color: var(--text_DarkMode);
@@ -220,14 +223,6 @@ section .wrapper {
   width: 100%;
   /* height: max-content; */
   margin-bottom: 20px;
-}
-
-.box {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--box_DarkMode);
-  padding: 20px;
-  border-radius: 6px;
 }
 
 .boxWrapper .box:nth-child(2n) {
@@ -436,6 +431,29 @@ section .wrapper .box:hover {
   margin: 10px 0;
 }
 
+/* ---Button--- */
+
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.buttonWrapper button {
+  position: relative;
+  width: 4%;
+  height: 0;
+  padding-top: 4%;
+}
+
+.buttonWrapper button span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
 
 /* .test {
   transform: translateY(-20px);
